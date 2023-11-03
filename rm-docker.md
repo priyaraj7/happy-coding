@@ -9,10 +9,10 @@ Docker is a powerful tool for containerization that allows developers to package
 The first step is to identify and list all Docker containers associated with your `app`. You can do this by running the following command in your terminal:
 
 ```bash
-docker ps -a | grep <your docker-container-name>
+docker ps -a | grep <your-docker-container-name>
 ```
 
-This command will list all containers that include <your docker-container-name> in their name or description. Take note of the Container IDs for the containers you want to remove.
+This command will list all containers that include <your-docker-container-name> in their name or description. Take note of the Container IDs for the containers you want to remove.
 
 ### Step 2: Stop and Remove Containers
 
@@ -37,7 +37,7 @@ This command will display a list of images with <your-docker-container-name> in 
 
 ### Step 4: Remove Images
 
-Finally, you can remove the Docker images associated with the XYZ app. To do this, replace `IMAGE_ID` with the actual Image ID from the previous step and execute the following command:
+Finally, you can remove the Docker images associated with the specific app. To do this, replace `IMAGE_ID` with the actual Image ID from the previous step and execute the following command:
 
 ```bash
 docker rmi <IMAGE_ID>
