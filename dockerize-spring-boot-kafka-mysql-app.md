@@ -114,8 +114,8 @@ Kafka, a distributed streaming platform, relies on Zookeeper for coordination. W
 
 We use MySQL for database management. The mysql:8.0 image is specified with a root password and a database for the Spring Boot app.
 
-**Ports: Exposes port 3306.
-**Environment Variables\*\*  
+**Ports:** Exposes port 3306.  
+**Environment Variables**  
 **MYSQL_ROOT_PASSWORD**: Sets the root password.  
 **MYSQL_DATABASE**: Creates the database.  
 **MYSQL_PASSWOR**D: Sets the database user password.  
