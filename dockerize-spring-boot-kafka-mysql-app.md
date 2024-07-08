@@ -92,20 +92,20 @@ services:
 
 Zookeeper is essential for managing and coordinating the Kafka service. We use the confluentinc/cp-zookeeper:7.5.0 image.
 
-**Ports**: Exposes port 2181.
-**Healthcheck**: Checks if Zookeeper is running.
+**Ports**: Exposes port 2181.  
+**Healthcheck**: Checks if Zookeeper is running.  
 **Restart Policy**: Restarts on failure.
 
 #### Kafka
 
 Kafka, a distributed streaming platform, relies on Zookeeper for coordination. We use the confluentinc/cp-kafka:7.5.0 image.
 
-**Ports**: Exposes port 9092.
-**Environment Variables:**
-**KAFKA_BROKER_ID**: Unique ID for the broker.
-**KAFKA_ZOOKEEPER_CONNECT**: Connects Kafka to Zookeeper.
-**KAFKA_ADVERTISED_LISTENERS**: Advertises the listener address.
-**KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR**: Sets the replication factor.
+**Ports**: Exposes port 9092.  
+**Environment Variables:**  
+ **KAFKA_BROKER_ID**: Unique ID for the broker.  
+ **KAFKA_ZOOKEEPER_CONNECT**: Connects Kafka to Zookeeper.  
+ **KAFKA_ADVERTISED_LISTENERS**: Advertises the listener address.  
+ **KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR**: Sets the replication factor.  
 **Depends On**: Ensures Kafka starts after Zookeeper.
 **Healthcheck**: Checks if Kafka is running.
 **Restart Policy**: Restarts on failure.
@@ -115,32 +115,32 @@ Kafka, a distributed streaming platform, relies on Zookeeper for coordination. W
 We use MySQL for database management. The mysql:8.0 image is specified with a root password and a database for the Spring Boot app.
 
 **Ports: Exposes port 3306.
-**Environment Variables:\*\*
-**MYSQL_ROOT_PASSWORD**: Sets the root password.
-**MYSQL_DATABASE**: Creates the database.
-**MYSQL_PASSWOR**D: Sets the database user password.
-**Volumes**: Initializes the database with a backup SQL file.
-**Healthcheck**: Checks if MySQL is running.
+**Environment Variables\*\*  
+**MYSQL_ROOT_PASSWORD**: Sets the root password.  
+**MYSQL_DATABASE**: Creates the database.  
+**MYSQL_PASSWOR**D: Sets the database user password.  
+**Volumes**: Initializes the database with a backup SQL file.  
+**Healthcheck**: Checks if MySQL is running.  
 **Restart Policy**: Restarts on failure.
 
 #### Spring Boot Application
 
 This service builds and runs the Spring Boot application.
 
-**Build Context**: Specifies the build context and Dockerfile.
-**Volumes**: Maps the local Maven repository.
-**Environment Variables**:
-**SPRING_DATASOURCE_URL**: Configures the datasource URL.
-**KAFKA_BROKER**: Sets the Kafka broker address.
-**KAFKA_BOOTSTRAPSERVERS**: Sets the Kafka bootstrap servers.
-**Depends On**: Ensures the app starts after Kafka, MySQL, and Zookeeper.
-**Ports**: Exposes port 8080.
-**Healthcheck**: Checks if the application is healthy.
+**Build Context**: Specifies the build context and Dockerfile.  
+**Volumes**: Maps the local Maven repository.  
+**Environment Variables**:  
+**SPRING_DATASOURCE_URL**: Configures the datasource URL.  
+**KAFKA_BROKER**: Sets the Kafka broker address.  
+**KAFKA_BOOTSTRAPSERVERS**: Sets the Kafka bootstrap servers.  
+**Depends On**: Ensures the app starts after Kafka, MySQL, and Zookeeper.  
+**Ports**: Exposes port 8080.  
+**Healthcheck**: Checks if the application is healthy.  
 **Restart Policy**: Restarts on failure.
 
 ### Running the Services
 
-To start the services defined in the docker-compose.yml file, navigate to the directory containing the file and run:
+To start the services defined in the `docker-compose.yml` file, navigate to the directory containing the file and run:
 
 ```sh
 docker-compose up
